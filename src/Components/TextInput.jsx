@@ -1,7 +1,7 @@
 import { Button, Textarea, useToast } from "@chakra-ui/react";
 import { useState } from "react"
 
-const TextInput = () => {
+const TextInput = ({ extractKeywords }) => {
     const [text, setText] = useState('');
     const toast = useToast();
     const submitText = () => {
@@ -14,9 +14,9 @@ const TextInput = () => {
                 isClosable: false
             })
         } else {
-            console.log(text);
+            extractKeywords(text);
         }
-    }
+    };
     return (
         <>
             <Textarea
